@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Trips - TripMate</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        /* =======================================
+           RESET & BASE
+        ======================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #eef9ff, #f7fcff);
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =======================================
+           COMMON NAVBAR
+        ======================================= */
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 18px 8%;
+
+            background: #ffffff;
+
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+        }
+
+        /* LOGO */
+
+        .logo {
+            text-decoration: none;
+
+            color: #0284c7;
+
+            font-size: 30px;
+            font-weight: 700;
+
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            white-space: nowrap;
+        }
+
+
+        /* DESKTOP LINKS */
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 32px;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+
+            color: #475569;
+
+            font-size: 18px;
+            font-weight: 500;
+
+            position: relative;
+
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #0284c7;
+        }
+
+
+        /* LOGIN + LOGOUT */
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+
+            gap: 28px;
+        }
+
+        .login-btn,
+        .logout-btn {
+            text-decoration: none;
+
+            font-size: 20px;
+            font-weight: 600;
+
+            display: flex;
+            align-items: center;
+
+            gap: 6px;
+        }
+
+        .login-btn {
+            color: #0284c7;
+        }
+
+        .logout-btn {
+            color: #0284c7;
+
+        }
+
+        .login-btn:hover {
+            color: #0369a1;
+        }
+
+        .logout-btn:hover {
+            color: #0369a1;
+        }
+
+
+        /* HAMBURGER */
+
+        .menu-toggle {
+            display: none;
+
+            background: none;
+            border: none;
+
+            color: #026697;
+
+            font-size: 25px;
+
+            cursor: pointer;
+        }
+
+
+        /* MOBILE MENU */
+
+        .mobile-menu {
+            display: none;
+        }
+
+
+        /* =======================================
+           MAIN CONTAINER
+        ======================================= */
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+
+            margin: 0 auto;
+
+            padding: 55px 20px 60px;
+        }
+
+
+        /* =======================================
+           PAGE HEADER
+        ======================================= */
+
+        .header {
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            font-size: 34px;
+
+            font-weight: 700;
+
+            color: #0f172a;
+
+            margin-bottom: 6px;
+        }
+
+        .header h1 span {
+            color: #0284c7;
+        }
+
+        .header p {
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+
+        /* =======================================
+           TRIP CARD
+        ======================================= */
+
+        .trip-card {
+            background: rgba(255, 255, 255, 0.95);
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 16px;
+
+            padding: 18px 22px;
+
+            margin-bottom: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            box-shadow:
+                0 8px 25px rgba(15, 23, 42, 0.06);
+
+            transition: 0.25s ease;
+        }
+
+        .trip-card:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 30px rgba(15, 23, 42, 0.10);
+        }
+
+
+        /* =======================================
+           DESTINATION
+        ======================================= */
+
+        .destination {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+        }
+
+        .destination-icon {
+            width: 45px;
+            height: 45px;
+
+            background: #e0f2fe;
+
+            color: #0284c7;
+
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 20px;
+        }
+
+        .destination h2 {
+            font-size: 19px;
+
+            font-weight: 600;
+
+            color: #0f172a;
+        }
+
+        .destination p {
+            font-size: 12px;
+
+            color: #94a3b8;
+
+            margin-top: 2px;
+        }
+
+
+        /* =======================================
+           OPEN BUTTON
+        ======================================= */
+
+        .open-btn {
+            border: none;
+
+            background: #1585bd;
+
+            color: white;
+
+            padding: 10px 20px;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+
+            white-space: nowrap;
+        }
+
+        .open-btn:hover {
+            background: #0369a1;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =======================================
+           TRIP DETAILS
+        ======================================= */
+
+        .trip-details {
+            display: none;
+
+            background: white;
+
+            border: 1px solid #dbeafe;
+
+            border-radius: 16px;
+
+            padding: 28px;
+
+            margin: -3px 0 18px 0;
+
+            box-shadow:
+                0 10px 30px rgba(15, 23, 42, 0.07);
+
+            animation: slideDown 0.25s ease;
+        }
+
+        @keyframes slideDown {
+
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .trip-details-title {
+            color: #0284c7;
+
+            font-size: 24px;
+
+            font-weight: 700;
+
+            margin-bottom: 22px;
+        }
+
+
+        /* =======================================
+           INFORMATION BOXES
+        ======================================= */
+
+        .trip-info {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+
+            margin-bottom: 28px;
+        }
+
+        .info-box {
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            padding: 13px 15px;
+
+            border-radius: 10px;
+        }
+
+        .info-box strong {
+            display: block;
+
+            color: #0284c7;
+
+            font-size: 12px;
+
+            margin-bottom: 3px;
+        }
+
+        .info-box span {
+            color: #334155;
+
+            font-size: 14px;
+
+            font-weight: 500;
+        }
+
+
+        /* =======================================
+           AI PLAN
+        ======================================= */
+
+        .plan-title {
+            font-size: 18px;
+
+            color: #0f172a;
+
+            margin-bottom: 10px;
+        }
+
+        .plan {
+            background: #f8fafc;
+
+            border-left: 4px solid #1585bd;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            color: #334155;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            white-space: pre-wrap;
+
+            overflow-wrap: anywhere;
+        }
+
+
+        /* =======================================
+           EMPTY
+        ======================================= */
+
+        .empty {
+            background: white;
+
+            padding: 45px 25px;
+
+            text-align: center;
+
+            border-radius: 16px;
+
+            border: 1px solid #e2e8f0;
+
+            box-shadow:
+                0 8px 25px rgba(15, 23, 42, 0.05);
+        }
+
+        .empty h2 {
+            color: #0284c7;
+
+            margin-bottom: 8px;
+        }
+
+        .empty p {
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+
+        /* =======================================
+           FOOTER
+        ======================================= */
+
+        .simple-footer {
+            text-align: center;
+
+            padding: 25px;
+
+            background: #0f172a;
+
+            color: #94a3b8;
+
+            font-size: 14px;
+
+            margin-top: 20px;
+        }
+
+
+        /* =======================================
+           TABLET
+        ======================================= */
+
+        @media (max-width: 992px) {
+
+            .navbar {
+                padding: 18px 5%;
+            }
+
+            .nav-links {
+                gap: 24px;
+
+                margin-right: 40px;
+            }
+
+        }
+
+
+        /* =======================================
+           MOBILE NAVBAR
+        ======================================= */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                padding: 15px 5%;
+
+                position: sticky;
+                top: 0;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            /* Hide desktop links */
+
+            .nav-links,
+            .nav-buttons {
+                display: none;
+            }
+
+            /* Show hamburger */
+
+            .menu-toggle {
+                display: block;
+            }
+
+            /* Mobile dropdown */
+
+            .mobile-menu {
+                display: none;
+
+                position: absolute;
+
+                top: 100%;
+                left: 0;
+                right: 0;
+
+                background: white;
+
+                flex-direction: column;
+
+                box-shadow:
+                    0 8px 20px rgba(0, 0, 0, 0.12);
+
+                border-radius: 0 0 12px 12px;
+
+                overflow: hidden;
+
+                z-index: 1000;
+            }
+
+            .mobile-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu a {
+                text-decoration: none;
+
+                color: #334155;
+
+                font-size: 15px;
+
+                font-weight: 500;
+
+                padding: 14px 22px;
+
+                border-bottom: 1px solid #f1f5f9;
+            }
+
+            .mobile-menu a:hover {
+                background: #f0f9ff;
+
+                color: #0284c7;
+            }
+
+            .mobile-menu a:last-child {
+                border-bottom: none;
+
+                color: #0284c7;
+            }
+
+
+            /* Main */
+
+            .container {
+                padding: 40px 15px 50px;
+            }
+
+            .header h1 {
+                font-size: 29px;
+            }
+
+            .trip-card {
+                padding: 16px;
+            }
+
+            .trip-details {
+                padding: 20px;
+            }
+
+        }
+
+
+        /* =======================================
+           SMALL MOBILE
+        ======================================= */
+
+        @media (max-width: 520px) {
+
+            .container {
+                padding: 30px 12px 40px;
+            }
+
+            .header {
+                margin-bottom: 25px;
+            }
+
+            .header h1 {
+                font-size: 26px;
+            }
+
+            .header p {
+                font-size: 13px;
+            }
+
+            .trip-card {
+                flex-direction: column;
+
+                align-items: stretch;
+
+                padding: 16px;
+
+                gap: 14px;
+            }
+
+            .destination {
+                width: 100%;
+            }
+
+            .destination-icon {
+                width: 42px;
+                height: 42px;
+            }
+
+            .destination h2 {
+                font-size: 18px;
+            }
+
+            .open-btn {
+                width: 100%;
+
+                padding: 11px;
+            }
+
+            .trip-details {
+                padding: 18px;
+
+                margin-bottom: 15px;
+            }
+
+            .trip-details-title {
+                font-size: 21px;
+            }
+
+            .trip-info {
+                grid-template-columns: 1fr;
+
+                gap: 9px;
+
+                margin-bottom: 22px;
+            }
+
+            .info-box {
+                padding: 11px 13px;
+            }
+
+            .plan {
+                padding: 15px;
+
+                font-size: 13px;
+
+                line-height: 1.7;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =======================================
+         COMMON NAVBAR
+    ======================================= -->
+
+    {% include 'navbar.html' %}
+
+
+
+    <!-- =======================================
+         MAIN CONTENT
+    ======================================= -->
+
+    <div class="container">
+
+
+        <!-- PAGE HEADER -->
+
+        <div class="header">
+
+            <h1>
+                My <span>Trips</span>
+            </h1>
+
+            <p>
+                Your saved TripMate journeys
+            </p>
+
+        </div>
+
+
+
+        {% if trips %}
+
+
+            {% for trip in trips %}
+
+
+                <!-- TRIP CARD -->
+
+                <div class="trip-card">
+
+                    <div class="destination">
+
+                        <div class="destination-icon">
+                            ✈
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                {{ trip[2] }}
+                            </h2>
+
+                            <p>
+                                Saved Trip
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="open-btn"
+                        onclick="toggleTrip('trip{{ trip[0] }}', this)"
+                    >
+                        Open Trip
+                    </button>
+
+                </div>
+
+
+
+                <!-- TRIP DETAILS -->
+
+                <div
+                    id="trip{{ trip[0] }}"
+                    class="trip-details"
+                >
+
+                    <h2 class="trip-details-title">
+
+                        {{ trip[2] }} Trip
+
+                    </h2>
+
+
+
+                    <!-- TRIP INFORMATION -->
+
+                    <div class="trip-info">
+
+
+                        <div class="info-box">
+
+                            <strong>
+                                Starting Point
+                            </strong>
+
+                            <span>
+                                {{ trip[1] }}
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <strong>
+                                Destination
+                            </strong>
+
+                            <span>
+                                {{ trip[2] }}
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <strong>
+                                Days
+                            </strong>
+
+                            <span>
+                                {{ trip[3] }}
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <strong>
+                                Budget
+                            </strong>
+
+                            <span>
+                                ₹{{ trip[4] }}
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <strong>
+                                Travelers
+                            </strong>
+
+                            <span>
+                                {{ trip[5] }}
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- AI GENERATED PLAN -->
+
+                    <h3 class="plan-title">
+
+                        AI Generated Trip Plan
+
+                    </h3>
+
+
+                    <div class="plan">
+
+                        {{ trip[6] }}
+
+                    </div>
+
+                </div>
+
+
+            {% endfor %}
+
+
+
+        {% else %}
+
+
+            <!-- NO TRIPS -->
+
+            <div class="empty">
+
+                <h2>
+                    No Trips Found
+                </h2>
+
+                <p>
+                    You have not generated any trips yet.
+                </p>
+
+            </div>
+
+
+        {% endif %}
+
+
+    </div>
+
+
+
+    <!-- =======================================
+         FOOTER
+    ======================================= -->
+
+    <footer class="simple-footer">
+
+        <p>
+            &copy; 2026 TripMate.
+            All rights reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =======================================
+         TRIP TOGGLE
+    ======================================= -->
+
+    <script>
+
+        function toggleTrip(id, button) {
+
+            const tripDetails =
+                document.getElementById(id);
+
+            if (tripDetails.style.display === "block") {
+
+                tripDetails.style.display = "none";
+
+                button.innerText = "Open Trip";
+
+            } else {
+
+                tripDetails.style.display = "block";
+
+                button.innerText = "Close Trip";
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Travel Guidelines & Rules - TripMate</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+
+        /* =======================================
+           NAVBAR
+        ======================================= */
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 18px 8%;
+
+            background: #ffffff;
+
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            text-decoration: none;
+
+            color: #0284c7;
+
+            font-size: 30px;
+            font-weight: 700;
+
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            white-space: nowrap;
+        }
+
+
+        /* DESKTOP NAV LINKS */
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 32px;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+
+            color: #475569;
+
+            font-size: 18px;
+            font-weight: 500;
+
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #0284c7;
+        }
+
+
+        /* LOGIN + LOGOUT */
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+
+            gap: 28px;
+        }
+
+        .login-btn,
+        .logout-btn {
+            text-decoration: none;
+
+            font-size: 20px;
+            font-weight: 600;
+
+            display: flex;
+            align-items: center;
+
+            gap: 6px;
+        }
+
+        .login-btn {
+            color: #0284c7;
+        }
+
+        .logout-btn {
+            color: #0284c7;
+
+                   }
+
+        .login-btn:hover {
+            color: #0369a1;
+        }
+
+        .logout-btn:hover {
+        color: #0369a1;
+        }
+
+
+        /* HAMBURGER */
+
+        .menu-toggle {
+            display: none;
+
+            background: none;
+            border: none;
+
+            color: #026697;
+
+            font-size: 25px;
+
+            cursor: pointer;
+        }
+
+
+        /* MOBILE MENU */
+
+        .mobile-menu {
+            display: none;
+        }
+
+
+        /* =======================================
+           HERO HEADER
+        ======================================= */
+
+        .rules-header {
+
+            background:
+                linear-gradient(
+                    rgba(15, 23, 42, 0.5),
+                    rgba(15, 23, 42, 0.65)
+                ),
+                url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1920&q=80')
+                no-repeat center center/cover;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 80px 20px;
+        }
+
+
+        .rules-header h1 {
+
+            font-size: 36px;
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+        }
+
+
+        .rules-header p {
+
+            font-size: 16px;
+
+            color: #cbd5e1;
+
+            max-width: 600px;
+
+            margin: 0 auto;
+        }
+
+
+        /* =======================================
+           MAIN SECTION
+        ======================================= */
+
+        .main-container {
+
+            max-width: 900px;
+
+            margin: 40px auto;
+
+            padding: 0 20px;
+        }
+
+
+        .rule-section {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.04);
+
+            margin-bottom: 25px;
+
+            border-left: 5px solid #0284c7;
+        }
+
+
+        .rule-section h2 {
+
+            font-size: 20px;
+
+            color: #0f172a;
+
+            margin-bottom: 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .rule-section h2 i {
+
+            color: #0284c7;
+        }
+
+
+        .rule-section ul {
+
+            list-style: none;
+        }
+
+
+        .rule-section ul li {
+
+            font-size: 15px;
+
+            color: #4b5563;
+
+            margin-bottom: 15px;
+
+            line-height: 1.6;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 12px;
+        }
+
+
+        .rule-section ul li i {
+
+            color: #22c55e;
+
+            margin-top: 5px;
+
+            font-size: 14px;
+
+            flex-shrink: 0;
+        }
+
+
+        /* =======================================
+           WARNING BOARD
+        ======================================= */
+
+        .warning-box {
+
+            background-color: #fef2f2;
+
+            border-left: 5px solid #ef4444;
+        }
+
+
+        .warning-box h2 i {
+
+            color: #ef4444;
+        }
+
+
+        .warning-box ul li i {
+
+            color: #ef4444;
+        }
+
+
+        /* =======================================
+           FOOTER
+        ======================================= */
+
+        .simple-footer {
+
+            text-align: center;
+
+            padding: 25px;
+
+            background: #0f172a;
+
+            color: #94a3b8;
+
+            font-size: 14px;
+        }
+
+
+        /* =======================================
+           TABLET
+        ======================================= */
+
+        @media (max-width: 992px) {
+
+            .navbar {
+                padding: 18px 5%;
+            }
+
+        }
+
+
+        /* =======================================
+           MOBILE
+        ======================================= */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+
+                position: sticky;
+
+                top: 0;
+
+                padding: 15px 5%;
+            }
+
+
+            .logo {
+
+                font-size: 21px;
+            }
+
+
+            /* Hide desktop links */
+
+            .nav-links,
+            .nav-buttons {
+
+                display: none;
+            }
+
+
+            /* Show hamburger */
+
+            .menu-toggle {
+
+                display: block;
+            }
+
+
+            /* Mobile dropdown */
+
+            .mobile-menu {
+
+                display: none;
+
+                position: absolute;
+
+                top: 100%;
+
+                left: 0;
+
+                right: 0;
+
+                background: white;
+
+                flex-direction: column;
+
+                box-shadow:
+                    0 8px 20px rgba(0, 0, 0, 0.12);
+
+                border-radius: 0 0 12px 12px;
+
+                overflow: hidden;
+
+                z-index: 1000;
+            }
+
+
+            .mobile-menu.active {
+
+                display: flex;
+            }
+
+
+            .mobile-menu a {
+
+                text-decoration: none;
+
+                color: #334155;
+
+                font-size: 15px;
+
+                font-weight: 500;
+
+                padding: 14px 22px;
+
+                border-bottom: 1px solid #f1f5f9;
+            }
+
+
+            .mobile-menu a:hover {
+
+                background: #f0f9ff;
+
+                color: #0284c7;
+            }
+
+
+            .mobile-menu a:last-child {
+
+                border-bottom: none;
+
+                color: #0284c7;
+            }
+
+
+            /* Hero */
+
+            .rules-header {
+
+                padding: 60px 15px;
+            }
+
+
+            .rules-header h1 {
+
+                font-size: 28px;
+            }
+
+
+            .rules-header p {
+
+                font-size: 14px;
+            }
+
+
+            /* Main */
+
+            .main-container {
+
+                margin: 25px auto;
+            }
+
+
+            .rule-section {
+
+                padding: 20px;
+            }
+
+
+            .rule-section h2 {
+
+                font-size: 18px;
+            }
+
+
+            .rule-section ul li {
+
+                font-size: 14px;
+            }
+
+        }
+
+
+        /* =======================================
+           SMALL MOBILE
+        ======================================= */
+
+        @media (max-width: 480px) {
+
+            .rules-header {
+
+                padding: 50px 15px;
+            }
+
+
+            .rules-header h1 {
+
+                font-size: 25px;
+            }
+
+
+            .rules-header p {
+
+                font-size: 13px;
+            }
+
+
+            .main-container {
+
+                padding: 0 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =======================================
+       COMMON NAVBAR
+    ======================================= -->
+
+    {% include 'navbar.html' %}
+
+
+
+    <!-- =======================================
+       HEADER
+    ======================================= -->
+
+    <section class="rules-header">
+
+        <h1>
+            Travel Safe: Guidelines & Rules
+        </h1>
+
+        <p>
+            Essential rules and smart tips to make your journey smooth and secure.
+        </p>
+
+    </section>
+
+
+
+    <!-- =======================================
+       RULES CONTAINER
+    ======================================= -->
+
+    <main class="main-container">
+
+
+        <!-- Section 1: Pre-Trip -->
+
+        <div class="rule-section">
+
+            <h2>
+
+                <i class="fa-solid fa-suitcase"></i>
+
+                1. Before You Leave
+
+            </h2>
+
+
+            <ul>
+
+                <li>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <div>
+
+                        <strong>Documents:</strong>
+
+                        Always carry soft copies of your ID proofs,
+                        visas, and tickets on your phone/cloud storage.
+
+                    </div>
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <div>
+
+                        <strong>Medical Kit:</strong>
+
+                        Keep a basic medical kit with pain relievers,
+                        band-aids, and your regular prescriptions.
+
+                    </div>
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <div>
+
+                        <strong>Emergency Contacts:</strong>
+
+                        Save local emergency numbers of your destination beforehand.
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- Section 2: Local & Cultural Rules -->
+
+        <div class="rule-section">
+
+            <h2>
+
+                <i class="fa-solid fa-scale-balanced"></i>
+
+                2. Respect Local Culture
+
+            </h2>
+
+
+            <ul>
+
+                <li>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <div>
+
+                        <strong>Dress Codes:</strong>
+
+                        Follow appropriate dress codes when visiting
+                        religious or sacred places.
+
+                    </div>
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <div>
+
+                        <strong>Eco-Friendly:</strong>
+
+                        Do not litter. Keep the environment clean
+                        and respect wildlife.
+
+                    </div>
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <div>
+
+                        <strong>Photography:</strong>
+
+                        Seek permission before taking photos of locals
+                        or restricted government properties.
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- Section 3: Safety & Alert -->
+
+        <div class="rule-section warning-box">
+
+            <h2>
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                3. Safety Warnings
+
+            </h2>
+
+
+            <ul>
+
+                <li>
+
+                    <i class="fa-solid fa-circle-xmark"></i>
+
+                    <div>
+
+                        <strong>Public Wi-Fi:</strong>
+
+                        Avoid making banking transactions while connected
+                        to public or railway station Wi-Fi network.
+
+                    </div>
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-solid fa-circle-xmark"></i>
+
+                    <div>
+
+                        <strong>Scams:</strong>
+
+                        Beware of unauthorized tour guides or extremely cheap,
+                        suspicious travel deals.
+
+                    </div>
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-solid fa-circle-xmark"></i>
+
+                    <div>
+
+                        <strong>Valuables:</strong>
+
+                        Never leave your luggage or expensive gadgets unattended
+                        in public transport.
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =======================================
+       FOOTER
+    ======================================= -->
+
+    <footer class="simple-footer">
+
+        <p>
+            &copy; 2026 TripMate. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

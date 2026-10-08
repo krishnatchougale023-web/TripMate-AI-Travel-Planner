@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TripMate - Plan Your Trip</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='Dashboard.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- =======================================
+       COMMON NAVBAR
+       ======================================= -->
+
+    {% include 'navbar.html' %}
+
+
+
+    <!-- =======================================
+       MAIN PLANNER CONTAINER
+       ======================================= -->
+
+    <div class="planner-container">
+
+
+        <!-- PLANNER HERO / HEADER SECTION -->
+
+        <header class="planner-header">
+
+            <h1>
+                Plan Your Dream Vacation📸
+            </h1>
+
+            <p>
+                Fill in the details below to create your perfect personalized itinerary.
+            </p>
+
+        </header>
+
+
+
+        <!-- =======================================
+           INPUT SEARCH FORM
+           ======================================= -->
+
+        <section class="form-container">
+
+            <form
+                class="planner-form"
+                action="/generate-trip"
+                method="POST"
+            >
+
+
+                <!-- Starting Point -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        <i class="fa-solid fa-location-arrow"></i>
+
+                        Starting Point
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        name="start_point"
+                        placeholder="Starting Location"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Select Place -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Select Place
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        name="place"
+                        placeholder="Destination"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- How Many Days -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        <i class="fa-regular fa-calendar-days"></i>
+
+                        How Many Days
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        name="days"
+                        min="1"
+                        placeholder="Number of days"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Budget -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        <i class="fa-solid fa-wallet"></i>
+
+                        Budget (₹)
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        name="budget"
+                        min="0"
+                        placeholder="e.g. 15000"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- How Many People -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        <i class="fa-solid fa-users"></i>
+
+                        How Many People
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        name="people"
+                        min="1"
+                        placeholder="Number of travelers"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- =======================================
+                   BUTTONS
+                   ======================================= -->
+
+                <div class="form-group btn-wrapper">
+
+
+                    <!-- Trip Plan Button -->
+
+                    <button
+                        type="submit"
+                        class="btn-plan-trip"
+                    >
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                        Trip Plan
+
+                    </button>
+
+
+
+                    <!-- View My Trips Button -->
+
+                    <!-- <a
+                        href="{{ url_for('my_trips') }}"
+                        class="btn-view-trips"
+                    >
+
+                        <i class="fa-solid fa-suitcase"></i>
+
+                        View My Trips
+
+                    </a> -->
+
+
+                </div>
+
+
+            </form>
+
+        </section>
+
+
+
+        <!-- =======================================
+           PLACES SECTION
+           ======================================= -->
+
+        <section class="places-section">
+
+
+            <h2>
+                Popular Destinations
+            </h2>
+
+
+            <div class="places-grid">
+
+
+                <!-- Manali -->
+
+                <div class="place-card">
+
+                    <div class="img-wrapper">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=600&q=80"
+                            alt="Manali"
+                        >
+
+                    </div>
+
+
+                    <div class="place-info">
+
+                        <h3>
+                            Manali
+                        </h3>
+
+                        <p>
+                            Snow-capped peaks and adventure sports.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Goa -->
+
+                <div class="place-card">
+
+                    <div class="img-wrapper">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80"
+                            alt="Goa"
+                        >
+
+                    </div>
+
+
+                    <div class="place-info">
+
+                        <h3>
+                            Goa
+                        </h3>
+
+                        <p>
+                            Relaxing beaches and vibrant nightlife.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Jaipur -->
+
+                <div class="place-card">
+
+                    <div class="img-wrapper">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=600&q=80"
+                            alt="Jaipur"
+                        >
+
+                    </div>
+
+
+                    <div class="place-info">
+
+                        <h3>
+                            Jaipur
+                        </h3>
+
+                        <p>
+                            Explore royal palaces and rich heritage.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Kerala -->
+
+                <div class="place-card">
+
+                    <div class="img-wrapper">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=600&q=80"
+                            alt="Kerala"
+                        >
+
+                    </div>
+
+
+                    <div class="place-info">
+
+                        <h3>
+                            Kerala
+                        </h3>
+
+                        <p>
+                            Serene backwaters and lush greenery.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Leh Ladakh -->
+
+                <div class="place-card">
+
+                    <div class="img-wrapper">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=600&q=80"
+                            alt="Leh Ladakh"
+                        >
+
+                    </div>
+
+
+                    <div class="place-info">
+
+                        <h3>
+                            Leh Ladakh
+                        </h3>
+
+                        <p>
+                            Stunning cold deserts and breathtaking lakes.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Agra -->
+
+                <div class="place-card">
+
+                    <div class="img-wrapper">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=600&q=80"
+                            alt="Agra"
+                        >
+
+                    </div>
+
+
+                    <div class="place-info">
+
+                        <h3>
+                            Agra
+                        </h3>
+
+                        <p>
+                            Witness the timeless beauty of the Taj Mahal.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =======================================
+           OPTIONAL TRIP RESULT
+           ======================================= -->
+
+        {% if trip %}
+
+        <div class="trip-result">
+
+            <h2>
+                Your AI Trip Plan
+            </h2>
+
+
+            <div class="trip-result-content">
+
+                {{ trip }}
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+    </div>
+
+
+
+    <!-- =======================================
+       FOOTER SECTION
+       ======================================= -->
+
+    <footer class="simple-footer">
+
+        <p>
+            &copy; 2026 TripMate. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripMate - Your Trip Plan</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='Dashboard.css') }}">
+
+    <!-- Trip Result CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='TripResult.css') }}">
+
+    <style>
+
+        /* =========================
+           RESPONSIVE NAVBAR
+        ========================= */
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 6%;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #0284c7;
+            font-size: 30px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #0284c7;
+        }
+
+        .logout-link {
+            color: #0284c7 !important;
+        }
+
+        /* Hamburger */
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #026697;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           MOBILE NAVBAR
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                position: sticky;
+                top: 0;
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 8px 0;
+                border-radius: 0 0 12px 12px;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                padding: 13px 22px;
+                border-bottom: 1px solid #f1f5f9;
+                font-size: 15px;
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         COMMON NAVBAR
+    ========================== -->
+
+    {% include 'navbar.html' %}
+
+
+    <!-- =========================
+         RESULT
+    ========================== -->
+
+    <div class="trip-result">
+
+        <h1>
+            <i class="fa-solid fa-map-location-dot"></i>
+            Your AI Trip Plan
+        </h1>
+
+        <div class="trip-content">
+            {{ trip | safe }}
+        </div>
+
+        <div class="btn-center">
+
+            <a href="/plan-trip" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                Plan Another Trip
+            </a>
+
+        </div>
+
+        <div class="btn-center">
+
+            <button type="button"
+                    class="download-btn"
+                    onclick="openFeedbackPopup()">
+
+                <i class="fa-solid fa-download"></i>
+                Download Trip Plan
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FEEDBACK POPUP
+    ========================== -->
+
+    <div id="feedbackPopup" class="feedback-overlay">
+
+        <div class="feedback-box">
+
+            <button type="button"
+                    class="feedback-close"
+                    onclick="closeFeedbackPopup()">
+
+                &times;
+
+            </button>
+
+            <h2>Share Your Feedback</h2>
+
+            <p class="feedback-subtitle">
+                Please share your experience before downloading.
+            </p>
+
+
+            <form id="feedbackForm">
+
+                <div class="feedback-group">
+
+                    <label>Name</label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter your name"
+                        required>
+
+                </div>
+
+
+                <div class="feedback-group">
+
+                    <label>Rating</label>
+
+                    <div class="star-rating">
+
+                        <input type="radio"
+                               id="star5"
+                               name="rating"
+                               value="5"
+                               required>
+
+                        <label for="star5">★</label>
+
+
+                        <input type="radio"
+                               id="star4"
+                               name="rating"
+                               value="4">
+
+                        <label for="star4">★</label>
+
+
+                        <input type="radio"
+                               id="star3"
+                               name="rating"
+                               value="3">
+
+                        <label for="star3">★</label>
+
+
+                        <input type="radio"
+                               id="star2"
+                               name="rating"
+                               value="2">
+
+                        <label for="star2">★</label>
+
+
+                        <input type="radio"
+                               id="star1"
+                               name="rating"
+                               value="1">
+
+                        <label for="star1">★</label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feedback-group">
+
+                    <label>Message</label>
+
+                    <textarea
+                        name="message"
+                        rows="4"
+                        placeholder="Write your feedback..."
+                        required></textarea>
+
+                </div>
+
+
+                <button type="submit"
+                        class="feedback-submit">
+
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Submit Feedback & Download
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="simple-footer">
+
+        <p>
+            &copy; 2026 TripMate. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         FEEDBACK POPUP SCRIPT
+    ========================== -->
+
+    <script>
+
+        function openFeedbackPopup() {
+
+            document.getElementById("feedbackPopup").style.display = "flex";
+
+        }
+
+
+        function closeFeedbackPopup() {
+
+            document.getElementById("feedbackPopup").style.display = "none";
+
+        }
+
+
+        window.onclick = function(event) {
+
+            const popup =
+                document.getElementById("feedbackPopup");
+
+            if (event.target === popup) {
+
+                closeFeedbackPopup();
+
+            }
+
+        };
+
+
+        document.getElementById("feedbackForm")
+        .addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+            const form = this;
+
+            const popup =
+                document.getElementById("feedbackPopup");
+
+            const formData =
+                new FormData(form);
+
+
+            try {
+
+                /* Submit feedback */
+
+                const response = await fetch(
+                    "/submit-feedback",
+                    {
+                        method: "POST",
+                        body: formData
+                    }
+                );
+
+
+                if (response.ok) {
+
+                    /* Close popup */
+
+                    popup.style.display = "none";
+
+
+                    /* Download trip plan */
+
+                    const downloadResponse =
+                        await fetch("/download-trip");
+
+
+                    const blob =
+                        await downloadResponse.blob();
+
+
+                    const url =
+                        window.URL.createObjectURL(blob);
+
+
+                    const a =
+                        document.createElement("a");
+
+
+                    a.href = url;
+
+                    a.download =
+                        "TripMate_Trip_Plan.txt";
+
+
+                    document.body.appendChild(a);
+
+                    a.click();
+
+                    a.remove();
+
+
+                    window.URL.revokeObjectURL(url);
+
+                }
+
+            } catch (error) {
+
+                console.error("Error:", error);
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

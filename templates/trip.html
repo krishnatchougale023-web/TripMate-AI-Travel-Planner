@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TripMate - Your Journey, Perfectly Planned</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='tripCSS.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+      {% include 'navbar.html' %}
+
+
+    
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <section class="hero">
+
+       <div class="hero-content">
+
+    <h1>Your Journey,Perfectly Planned.</h1>
+
+    <p>
+        Explore the world with TripMate and make every trip unforgettable.
+    </p>
+
+    <a href="{{ url_for('plan_trip') }}" class="btn-get-started">
+        Get Started
+        <i class="fa-solid fa-arrow-right"></i>
+    </a>
+
+</div>
+        <!-- Wave Divider -->
+        <div class="wave-container">
+
+            <svg viewBox="0 0 1440 120"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <path
+                    d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z"
+                    fill="#ffffff">
+                </path>
+
+            </svg>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FEATURES SECTION
+    ========================== -->
+
+    <section class="features">
+
+        <div class="features-header">
+
+            <span class="subtitle">FEATURES</span>
+
+            <h2>
+                Everything You Need for the Perfect Trip
+            </h2>
+
+        </div>
+
+
+        <div class="features-grid">
+
+            <!-- Card 1 -->
+            <div class="feature-card">
+
+                <div class="icon-box">
+                    <i class="fa-solid fa-earth-americas"></i>
+                </div>
+
+                <h3>
+                    Explore Top Destinations
+                </h3>
+
+                <p>
+                    Discover amazing places across the globe.
+                </p>
+
+            </div>
+
+
+            <!-- Card 2 -->
+            <div class="feature-card">
+
+                <div class="icon-box">
+                    <i class="fa-solid fa-route"></i>
+                </div>
+
+                <h3>
+                    Travel Guides
+                </h3>
+
+                <p>
+                    Get detailed guides and tips for your next adventure.
+                </p>
+
+            </div>
+
+
+            <!-- Card 3 -->
+            <div class="feature-card">
+
+                <div class="icon-box">
+                    <i class="fa-solid fa-suitcase-rolling"></i>
+                </div>
+
+                <h3>
+                    Plan with Ease
+                </h3>
+
+                <p>
+                    Plan your trip, book stays and manage everything.
+                </p>
+
+            </div>
+
+
+            <!-- Card 4 -->
+            <div class="feature-card">
+
+                <div class="icon-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <h3>
+                    Secure & Reliable
+                </h3>
+
+                <p>
+                    Your safety and satisfaction are our top priority.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         REVIEWS SECTION
+    ========================== -->
+
+    <section class="reviews-section">
+
+        <div class="reviews-heading">
+
+            <h2>
+                What Travelers Are Saying
+            </h2>
+
+            <p>
+                Real experiences from travelers who planned their trips with TripMate.
+            </p>
+
+        </div>
+
+
+        <div class="reviews-grid">
+
+            <!-- Column 1 -->
+            <div class="review-column">
+
+                <div class="review-card">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            N
+                        </div>
+
+                        <div>
+                            <h3>Nandini</h3>
+                            <span>Travel Blogger</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        Planning a trip became much easier with TripMate.
+                        Everything I needed was organized in one place.
+                    </p>
+
+                </div>
+
+
+                <div class="review-card">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            B
+                        </div>
+
+                        <div>
+                            <h3>shrimayi</h3>
+                            <span>Travel Enthusiast</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        TripMate makes travel planning simple and convenient.
+                        I really liked how easy it was to organize my trip.
+                    </p>
+
+                </div>
+
+
+                <div class="review-card extra-review">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            R
+                        </div>
+
+                        <div>
+                            <h3>Rahul</h3>
+                            <span>Traveler</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        A very useful travel planner. It helped me organize
+                        destinations and activities without any confusion.
+                    </p>
+
+                </div>
+
+
+                <div class="review-card extra-review">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            A
+                        </div>
+
+                        <div>
+                            <h3>Ananya</h3>
+                            <span>Traveler</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        The itinerary suggestions were useful and saved
+                        a lot of planning time.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Column 2 -->
+            <div class="review-column">
+
+                <div class="review-card">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            S
+                        </div>
+
+                        <div>
+                            <h3>Sharad</h3>
+                            <span>Traveler</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        Amazing experience! The AI trip planning feature
+                        made creating an itinerary quick and easy.
+                    </p>
+
+                </div>
+
+
+                <div class="review-card">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            L
+                        </div>
+
+                        <div>
+                            <h3>Vendant</h3>
+                            <span>Adventure Traveler</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        I could easily explore different places and organize
+                        my travel plans in a simple way.
+                    </p>
+
+                </div>
+
+
+                <div class="review-card extra-review">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            M
+                        </div>
+
+                        <div>
+                            <h3>Maya</h3>
+                            <span>Travel Lover</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        The layout is simple and the trip planning process
+                        feels very smooth and easy to understand.
+                    </p>
+
+                </div>
+
+
+                <div class="review-card extra-review">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            V
+                        </div>
+
+                        <div>
+                            <h3>Vikram</h3>
+                            <span>Explorer</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        I liked how everything was organized in one place.
+                        Planning destinations, activities and food was much easier.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Column 3 -->
+            <div class="review-column">
+
+                <div class="review-card">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            J
+                        </div>
+
+                        <div>
+                            <h3>Jay Parabhakar</h3>
+                            <span>Frequent Traveler</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        Very handy and convenient. TripMate helped me discover
+                        places and organize my travel plans easily.
+                    </p>
+
+                </div>
+
+
+                <div class="review-card">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            A
+                        </div>
+
+                        <div>
+                            <h3>Amit Patil</h3>
+                            <span>Traveler</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        I loved how everything related to my trip could be
+                        planned in one place. Very simple to use.
+                    </p>
+
+                </div>
+
+
+                <div class="review-card extra-review">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            D
+                        </div>
+
+                        <div>
+                            <h3>Dhanu</h3>
+                            <span>Explorer</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        A clean and useful travel planning experience.
+                        It makes organizing a trip much more convenient.
+                    </p>
+
+                </div>
+
+
+                <div class="review-card extra-review">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            T
+                        </div>
+
+                        <div>
+                            <h3>Tanya</h3>
+                            <span>Traveler</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        The budget-based planning feature was especially
+                        useful for my trip.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Column 4 -->
+            <div class="review-column">
+
+                <div class="review-card">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            E
+                        </div>
+
+                        <div>
+                            <h3>Era</h3>
+                            <span>Travel Lover</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        Absolutely loved using TripMate. It keeps important
+                        travel information organized and easy to access.
+                    </p>
+
+                </div>
+
+
+                <div class="review-card">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            C
+                        </div>
+
+                        <div>
+                            <h3>karina</h3>
+                            <span>Traveler</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        Very intuitive and simple to use. TripMate makes
+                        planning a trip much more convenient.
+                    </p>
+
+                </div>
+
+
+                <div class="review-card extra-review">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            K
+                        </div>
+
+                        <div>
+                            <h3>Kabir</h3>
+                            <span>Traveler</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        It is a great way to keep destinations and travel
+                        ideas organized while planning a trip.
+                    </p>
+
+                </div>
+
+
+                <div class="review-card extra-review">
+
+                    <div class="review-user">
+
+                        <div class="user-circle">
+                            S
+                        </div>
+
+                        <div>
+                            <h3>Sameer</h3>
+                            <span>Frequent Traveler</span>
+                        </div>
+
+                    </div>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        It saved me a lot of time while preparing my travel
+                        itinerary. The suggestions were simple and practical.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="see-reviews">
+
+            <span id="reviewsToggle" onclick="toggleReviews()">
+                See more reviews
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         REVIEWS JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function toggleReviews() {
+
+            const reviews = document.querySelector(".reviews-grid");
+            const text = document.getElementById("reviewsToggle");
+
+            if (!reviews || !text) return;
+
+            reviews.classList.toggle("show-all");
+
+            if (reviews.classList.contains("show-all")) {
+
+                text.innerText = "See less reviews";
+
+            } else {
+
+                text.innerText = "See more reviews";
+
+            }
+
+        }
+
+    </script>
+
+
+    <!-- =========================
+         MOBILE MENU JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function toggleMenu() {
+
+            const menu = document.getElementById("mobileMenu");
+
+            menu.classList.toggle("active");
+
+        }
+
+    </script>
+
+
+    <!-- =========================
+         FOOTER SECTION
+    ========================== -->
+
+    <footer class="footer-section">
+
+        <!-- Top Wave for Footer -->
+        <div class="wave-container-top">
+
+            <svg data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+
+                <path
+                    d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,42.4V0Z"
+                    class="shape-fill-footer">
+                </path>
+
+            </svg>
+
+        </div>
+
+
+        <div class="footer-content">
+
+            <!-- Info Col -->
+            <div class="footer-col info-col">
+
+                <div class="footer-logo">
+                    <i class="fa-solid fa-umbrella-beach"></i>
+                    TripMate
+                </div>
+
+                <p>
+                    TripMate is your smart travel companion that helps you
+                    explore, plan and enjoy memorable journeys.
+                </p>
+
+                <div class="social-links">
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-pinterest-p"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Contact Us Col -->
+            <div class="footer-col contact-col">
+
+                <h3>
+                    Contact Us
+                </h3>
+
+                <p>
+                    <i class="fa-regular fa-envelope"></i>
+                    tripmate@gmail.com
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +91 12345 67890
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Explore the World
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                &copy; 2026 TripMate. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

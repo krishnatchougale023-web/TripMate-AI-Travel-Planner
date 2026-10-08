@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up - TripMate</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(rgba(0, 110, 160, 0.25),
+                rgba(0, 110, 160, 0.25)),
+                url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px 20px;
+        }
+
+        .signup-card {
+            width: 100%;
+            max-width: 650px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            border-radius: 24px;
+
+            padding: 30px 40px;
+
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .logo {
+            text-align: center;
+            color: #0788c9;
+
+            font-size: 30px;
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+        .logo i {
+            margin-right: 7px;
+        }
+
+        h2 {
+            text-align: center;
+
+            color: #1f2d3d;
+
+            font-size: 23px;
+            font-weight: 600;
+
+            margin-bottom: 25px;
+        }
+
+        .signup-form {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+
+            height: 48px;
+
+            border: 1px solid #ccd5df;
+
+            border-radius: 10px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            padding: 0 42px;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 13.5px;
+
+            color: #34445a;
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+        .form-group input::placeholder {
+            color: #91a2ba;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #0788c9;
+
+            box-shadow: 0 0 0 3px rgba(7, 136, 201, 0.10);
+
+            outline: none;
+        }
+
+        .form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+
+            cursor: pointer;
+        }
+
+        .input-icon {
+            position: absolute;
+
+            left: 15px;
+            top: 24px;
+
+            transform: translateY(-50%);
+
+            color: #71839c;
+
+            font-size: 15px;
+
+            z-index: 2;
+        }
+
+        .password-group input {
+            padding-right: 45px;
+        }
+
+        .password-eye {
+            position: absolute;
+
+            right: 15px;
+            top: 24px;
+
+            transform: translateY(-50%);
+
+            color: #71839c;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+            z-index: 3;
+
+            transition: 0.3s;
+        }
+
+        .password-eye:hover {
+            color: #0788c9;
+        }
+
+        /* Field Hint */
+
+        .field-hint {
+            display: block;
+
+            margin-top: 5px;
+
+            padding-left: 3px;
+
+            color: #718096;
+
+            font-size: 10px;
+
+            line-height: 1.4;
+        }
+
+        /* Field Error */
+
+        .field-error {
+            display: block;
+
+            margin-top: 4px;
+
+            padding-left: 3px;
+
+            color: #dc2626;
+
+            font-size: 10.5px;
+
+            line-height: 1.4;
+        }
+
+        /* General Error */
+
+        .error-message {
+            grid-column: 1 / -1;
+
+            color: #dc2626;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+        .terms {
+            grid-column: 1 / -1;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 2px;
+
+            color: #64748b;
+
+            font-size: 12px;
+        }
+
+        .terms input {
+            width: 14px;
+            height: 14px;
+
+            accent-color: #0788c9;
+
+            cursor: pointer;
+        }
+
+        .create-btn {
+            grid-column: 1 / -1;
+
+            width: 100%;
+
+            height: 48px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: linear-gradient(
+                135deg,
+                #0788c9,
+                #0878b4
+            );
+
+            color: white;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            box-shadow: 0 6px 15px rgba(7, 136, 201, 0.25);
+
+            transition: 0.3s;
+        }
+
+        .create-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow: 0 9px 20px rgba(7, 136, 201, 0.32);
+        }
+
+        .login-text {
+            text-align: center;
+
+            margin-top: 17px;
+
+            color: #718096;
+
+            font-size: 12.5px;
+        }
+
+        .login-text a {
+            color: #0788c9;
+
+            text-decoration: none;
+
+            font-weight: 600;
+        }
+
+        .login-text a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 650px) {
+
+            body {
+                padding: 20px 12px;
+            }
+
+            .signup-card {
+                padding: 25px 20px;
+
+                border-radius: 20px;
+            }
+
+            .signup-form {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width,
+            .error-message,
+            .terms,
+            .create-btn {
+                grid-column: auto;
+            }
+
+            .logo {
+                font-size: 27px;
+            }
+
+            h2 {
+                font-size: 21px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="signup-card">
+
+        <div class="logo">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            TripMate
+        </div>
+
+        <h2>Create Your Account</h2>
+
+        <form class="signup-form" action="/signup" method="POST">
+
+            {% if error %}
+                <p class="error-message">{{ error }}</p>
+            {% endif %}
+
+
+            <!-- Full Name -->
+
+            <div class="form-group full-width">
+
+                <i class="fa-regular fa-user input-icon"></i>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Full Name"
+                    required>
+
+            </div>
+
+
+            <!-- Email -->
+
+            <div class="form-group full-width">
+
+                <i class="fa-regular fa-envelope input-icon"></i>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    required>
+
+            </div>
+
+
+            <!-- Phone Number -->
+
+            <div class="form-group full-width">
+
+                <i class="fa-solid fa-phone input-icon"></i>
+
+                <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    placeholder="Phone Number"
+                    maxlength="10"
+                    pattern="[0-9]{10}"
+                    inputmode="numeric"
+                    required>
+
+                <small class="field-hint">
+                    Enter 10 digit phone number
+                </small>
+
+                {% if phone_error %}
+                    <small class="field-error">
+                        {{ phone_error }}
+                    </small>
+                {% endif %}
+
+            </div>
+
+
+            <!-- City -->
+
+            <div class="form-group">
+
+                <i class="fa-solid fa-location-dot input-icon"></i>
+
+                <input
+                    type="text"
+                    name="city"
+                    placeholder="City"
+                    required>
+
+            </div>
+
+
+            <!-- Gender -->
+
+            <div class="form-group">
+
+                <i class="fa-solid fa-venus-mars input-icon"></i>
+
+                <select name="gender" required>
+
+                    <option value="" disabled selected>
+                        Select Gender
+                    </option>
+
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Travel Preference -->
+
+            <div class="form-group">
+
+                <i class="fa-solid fa-users input-icon"></i>
+
+                <select name="travel_preference" required>
+
+                    <option value="" disabled selected>
+                        Travel Preference
+                    </option>
+
+                    <option value="Solo">Solo</option>
+                    <option value="Family">Family</option>
+                    <option value="Friends">Friends</option>
+                    <option value="Couple">Couple</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Travel Type -->
+
+            <div class="form-group">
+
+                <i class="fa-solid fa-map-location-dot input-icon"></i>
+
+                <select name="travel_type" required>
+
+                    <option value="" disabled selected>
+                        Preferred Travel Type
+                    </option>
+
+                    <option value="Adventure">Adventure</option>
+                    <option value="Nature">Nature</option>
+                    <option value="Historical">Historical</option>
+                    <option value="Beach">Beach</option>
+                    <option value="Religious">Religious</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Create Password -->
+
+            <div class="form-group password-group">
+
+                <i class="fa-solid fa-lock input-icon"></i>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create Password"
+                    maxlength="14"
+                    required>
+
+                <i
+                    class="fa-solid fa-eye password-eye"
+                    onclick="togglePassword('password', this)">
+                </i>
+
+              
+
+                {% if password_error %}
+                    <small class="field-error">
+                        {{ password_error }}
+                    </small>
+                {% endif %}
+
+            </div>
+
+
+            <!-- Confirm Password -->
+
+            <div class="form-group password-group">
+
+                <i class="fa-solid fa-lock input-icon"></i>
+
+                <input
+                    type="password"
+                    id="confirm_password"
+                    name="confirm_password"
+                    placeholder="Confirm Password"
+                    maxlength="14"
+                    required>
+
+                <i
+                    class="fa-solid fa-eye password-eye"
+                    onclick="togglePassword('confirm_password', this)">
+                </i>
+
+                {% if confirm_error %}
+                    <small class="field-error">
+                        {{ confirm_error }}
+                    </small>
+                {% endif %}
+
+            </div>
+
+
+            <!-- Terms -->
+
+            <div class="terms">
+
+                <input
+                    type="checkbox"
+                    id="terms"
+                    name="terms"
+                    required>
+
+                <label for="terms">
+                    I agree to the Terms & Conditions and Privacy Policy.
+                </label>
+
+            </div>
+
+
+            <!-- Create Account -->
+
+            <button type="submit" class="create-btn">
+                Create Account
+            </button>
+
+        </form>
+
+
+        <div class="login-text">
+
+            Already have an account?
+
+            <a href="/login">
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function togglePassword(id, icon) {
+
+            const input = document.getElementById(id);
+
+            if (input.type === "password") {
+
+                input.type = "text";
+
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+
+            } else {
+
+                input.type = "password";
+
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+
+            }
+        }
+
+
+        document.getElementById("phone").addEventListener("input", function () {
+
+            this.value = this.value.replace(/[^0-9]/g, '');
+
+        });
+
+    </script>
+
+</body>
+</html>

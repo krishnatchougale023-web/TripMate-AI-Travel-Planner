@@ -1,0 +1,879 @@
+/* =======================================
+   RESET & STYLES BASE
+======================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #2c3e50;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+
+/* =======================================
+   HEADER / NAVBAR
+======================================= */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 8%;
+
+    background: #ffffff;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.logo {
+    text-decoration: none;
+
+    color: #0284c7;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    white-space: nowrap;
+}
+
+
+/* DESKTOP NAV LINKS */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 32px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-links a {
+    text-decoration: none;
+
+    color: #475569;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #0284c7;
+}
+
+
+/* LOGIN + LOGOUT */
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+.login-btn,
+.logout-btn {
+    text-decoration: none;
+
+    font-size: 20px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+}
+
+.login-btn {
+    color: #0284c7;
+}
+
+.logout-btn {
+    color: #0284c7;
+
+}
+
+.login-btn:hover {
+    color: #0369a1;
+}
+
+.logout-btn:hover {
+    color: #0369a1;
+}
+
+
+/* HAMBURGER */
+
+.menu-toggle {
+    display: none;
+
+    background: none;
+    border: none;
+
+    color: #026697;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+/* MOBILE MENU */
+
+.mobile-menu {
+    display: none;
+}
+
+
+/* =======================================
+   PLANNER STRUCTURE CONTENT
+======================================= */
+
+.planner-container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 60px 20px;
+}
+
+.planner-header {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+.planner-header h1 {
+    font-size: 32px;
+
+    color: #0f172a;
+
+    font-weight: 700;
+}
+
+.planner-header p {
+    color: #64748b;
+
+    margin-top: 5px;
+
+    font-size: 15px;
+}
+
+
+/* =======================================
+   FORM LAYOUT
+======================================= */
+
+.form-container {
+    background-color: #ffffff;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.05);
+
+    margin-bottom: 60px;
+
+    border: 1px solid #e2e8f0;
+}
+
+.planner-form {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    align-items: flex-end;
+
+    justify-content: center;
+}
+
+.planner-form .form-group {
+    flex: 1 1 160px;
+
+    min-width: 150px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* =======================================
+   BUTTON WRAPPER
+======================================= */
+
+.form-group.btn-wrapper {
+    flex: 0 0 100%;
+
+    min-width: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: row;
+
+    gap: 15px;
+
+    margin-top: 5px;
+}
+
+
+/* =======================================
+   LABELS
+======================================= */
+
+.form-group label {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #334155;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+.form-group label i {
+    color: #0284c7;
+}
+
+
+/* =======================================
+   INPUTS
+======================================= */
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    padding: 12px 15px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    color: #0f172a;
+
+    background-color: #f8fafc;
+
+    outline: none;
+
+    transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #0284c7;
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+
+/* =======================================
+   TRIP PLAN BUTTON
+======================================= */
+
+.btn-plan-trip {
+    width: fit-content !important;
+
+    padding: 10px 40px;
+
+    background-color: #1585bd;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 7px;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+
+    box-shadow:
+        0 4px 12px rgba(2, 132, 199, 0.2);
+}
+
+.btn-plan-trip:hover {
+    background-color: #0369a1;
+
+    transform: translateY(-1px);
+}
+
+
+/* =======================================
+   VIEW MY TRIPS BUTTON
+======================================= */
+
+.btn-view-trips {
+    width: fit-content !important;
+
+    padding: 10px 40px;
+
+    background-color: #1585bd;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 7px;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+
+    box-shadow:
+        0 4px 12px rgba(2, 132, 199, 0.2);
+}
+
+.btn-view-trips:hover {
+    background-color: #0369a1;
+
+    transform: translateY(-1px);
+}
+
+
+/* =======================================
+   PLACES GRID STYLES
+======================================= */
+
+.places-section h2 {
+    font-size: 24px;
+
+    color: #0f172a;
+
+    margin-bottom: 25px;
+
+    font-weight: 600;
+
+    position: relative;
+
+    padding-left: 12px;
+}
+
+.places-section h2::before {
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+
+    top: 4px;
+
+    width: 4px;
+
+    height: 22px;
+
+    background-color: #0284c7;
+
+    border-radius: 2px;
+}
+
+.places-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 30px;
+}
+
+.place-card {
+    background-color: #ffffff;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.03);
+
+    border: 1px solid #e2e8f0;
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.place-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.img-wrapper {
+    width: 100%;
+
+    height: 200px;
+
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s;
+}
+
+.place-card:hover .img-wrapper img {
+    transform: scale(1.06);
+}
+
+.place-info {
+    padding: 20px;
+}
+
+.place-info h3 {
+    font-size: 18px;
+
+    color: #0f172a;
+
+    margin-bottom: 6px;
+
+    font-weight: 600;
+}
+
+.place-info p {
+    font-size: 13px;
+
+    color: #64748b;
+
+    line-height: 1.4;
+}
+
+
+/* =======================================
+   TRIP RESULT
+======================================= */
+
+.trip-result {
+    margin-top: 50px;
+}
+
+.trip-result h2 {
+    font-size: 24px;
+
+    color: #0f172a;
+
+    margin-bottom: 20px;
+}
+
+.trip-result-content {
+    background: #ffffff;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    margin-top: 20px;
+
+    white-space: pre-wrap;
+
+    border: 1px solid #e2e8f0;
+
+    line-height: 1.7;
+}
+
+
+/* =======================================
+   FOOTER
+======================================= */
+
+.simple-footer {
+    text-align: center;
+
+    padding: 25px;
+
+    background: #0f172a;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+/* =======================================
+   TABLET
+======================================= */
+
+@media (max-width: 992px) {
+
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .nav-links {
+        gap: 22px;
+
+        margin-right: 40px;
+    }
+
+    .nav-buttons {
+        gap: 18px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =======================================
+   MOBILE
+======================================= */
+
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+
+    .navbar {
+        padding: 15px 5%;
+
+        position: sticky;
+
+        top: 0;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .nav-links,
+    .nav-buttons {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+
+    /* MOBILE MENU */
+
+    .mobile-menu {
+        display: none;
+
+        position: absolute;
+
+        top: 100%;
+
+        left: 0;
+
+        right: 0;
+
+        background: #ffffff;
+
+        flex-direction: column;
+
+        box-shadow:
+            0 8px 20px rgba(0, 0, 0, 0.12);
+
+        border-radius: 0 0 12px 12px;
+
+        overflow: hidden;
+
+        z-index: 1000;
+    }
+
+    .mobile-menu.active {
+        display: flex;
+    }
+
+    .mobile-menu a {
+        text-decoration: none;
+
+        color: #334155;
+
+        font-size: 15px;
+
+        font-weight: 500;
+
+        padding: 14px 22px;
+
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    .mobile-menu a:hover {
+        background: #f0f9ff;
+
+        color: #0284c7;
+    }
+
+    .mobile-menu a:last-child {
+        border-bottom: none;
+
+        color: #0284c7;
+    }
+
+
+    /* PLANNER */
+
+    .planner-container {
+        padding: 40px 15px;
+    }
+
+    .planner-header {
+        margin-bottom: 30px;
+    }
+
+    .planner-header h1 {
+        font-size: 27px;
+    }
+
+    .planner-header p {
+        font-size: 14px;
+    }
+
+
+    /* FORM */
+
+    .form-container {
+        padding: 20px;
+
+        margin-bottom: 40px;
+    }
+
+    .planner-form {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .planner-form .form-group {
+        width: 100%;
+
+        min-width: 100%;
+    }
+
+
+    /* BUTTONS */
+
+    .form-group.btn-wrapper {
+        width: 100%;
+
+        flex: 0 0 auto;
+
+        justify-content: center;
+
+        align-items: center;
+
+        flex-direction: row;
+
+        flex-wrap: wrap;
+
+        gap: 12px;
+    }
+
+    .btn-plan-trip,
+    .btn-view-trips {
+        width: fit-content !important;
+
+        padding: 10px 25px;
+
+        font-size: 15px;
+    }
+
+
+    /* DESTINATIONS */
+
+    .places-section h2 {
+        font-size: 21px;
+    }
+
+    .places-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .img-wrapper {
+        height: 210px;
+    }
+
+
+    /* TRIP RESULT */
+
+    .trip-result {
+        margin-top: 35px;
+    }
+
+    .trip-result h2 {
+        font-size: 21px;
+    }
+
+}
+
+
+/* =======================================
+   SMALL MOBILE
+======================================= */
+
+@media (max-width: 480px) {
+
+    .navbar {
+        padding: 14px 5%;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .menu-toggle {
+        font-size: 23px;
+    }
+
+
+    /* PLANNER */
+
+    .planner-container {
+        padding: 30px 12px;
+    }
+
+    .planner-header h1 {
+        font-size: 24px;
+    }
+
+    .planner-header p {
+        font-size: 13px;
+    }
+
+
+    /* FORM */
+
+    .form-container {
+        padding: 16px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 11px 12px;
+
+        font-size: 13px;
+    }
+
+
+    /* BUTTONS */
+
+    .form-group.btn-wrapper {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .btn-plan-trip,
+    .btn-view-trips {
+        width: 100% !important;
+
+        padding: 11px 20px;
+
+        font-size: 15px;
+    }
+
+
+    /* DESTINATIONS */
+
+    .places-section h2 {
+        font-size: 20px;
+    }
+
+    .place-info {
+        padding: 16px;
+    }
+
+    .place-info h3 {
+        font-size: 17px;
+    }
+
+
+    /* FOOTER */
+
+    .simple-footer {
+        padding: 20px 12px;
+
+        font-size: 13px;
+    }
+
+}

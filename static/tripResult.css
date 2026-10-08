@@ -1,0 +1,361 @@
+
+.trip-result {
+
+    max-width: 850px;
+
+    margin: 35px auto;
+
+    background: rgb(241, 241, 182);
+
+    padding: 30px 40px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+
+}
+
+.trip-result:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 15px 30px black;
+
+}
+
+.trip-result h1 {
+
+    text-align: center;
+
+    color: #0a7064;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+    margin-bottom: 25px;
+
+}
+
+.trip-content {
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #202020;
+
+}
+
+.trip-content h2 {
+
+    color: #096088;
+
+    font-size: 19px;
+
+    font-weight: 600;
+
+    margin-top: 22px;
+
+    margin-bottom: 7px;
+
+}
+
+.trip-content ul {
+
+    margin: 3px 0 12px;
+
+    padding-left: 22px;
+
+}
+
+.trip-content li {
+
+    margin: 4px 0;
+
+    font-size: 15px;
+
+}
+
+.btn-center {
+
+    text-align: center;
+
+}
+
+.back-btn,
+
+.download-btn {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 8px 16px;
+
+    background: #034570;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.back-btn:hover,
+
+.download-btn:hover {
+
+    background: #6db1ff;
+
+}
+
+.journey-message {
+
+    text-align: center;
+
+    margin-top: 30px;
+
+    font-family: Georgia, serif;
+
+    font-size: 19px;
+
+    font-style: italic;
+
+    font-weight: 600;
+
+    color: #08584e;
+
+}
+
+
+/* ============================= */
+/* FEEDBACK POPUP */
+/* ============================= */
+
+.feedback-overlay {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+
+}
+
+.feedback-box {
+
+    width: 100%;
+
+    max-width: 450px;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    padding: 30px;
+
+    position: relative;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+
+    font-family: 'Poppins', sans-serif;
+
+    box-sizing: border-box;
+
+}
+
+.feedback-box h2 {
+
+    text-align: center;
+
+    color: #096088;
+
+    font-size: 22px;
+
+    margin: 0 0 5px;
+
+}
+
+.feedback-subtitle {
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
+
+}
+
+.feedback-close {
+
+    position: absolute;
+
+    top: 8px;
+
+    right: 14px;
+
+    border: none;
+
+    background: none;
+
+    font-size: 28px;
+
+    color: #777;
+
+    cursor: pointer;
+
+}
+
+.feedback-group {
+
+    margin-bottom: 18px;
+
+}
+
+.feedback-group label {
+
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    color: #333;
+
+    margin-bottom: 7px;
+
+}
+
+.feedback-group input[type="text"],
+
+.feedback-group textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d5dce5;
+
+    border-radius: 8px;
+
+    padding: 10px 12px;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 13px;
+
+    outline: none;
+
+}
+
+.feedback-group input[type="text"]:focus,
+
+.feedback-group textarea:focus {
+
+    border-color: #096088;
+
+}
+
+.feedback-group textarea {
+
+    resize: vertical;
+
+}
+
+.star-rating {
+
+    display: flex;
+
+    flex-direction: row-reverse;
+
+    justify-content: flex-end;
+
+    gap: 3px;
+
+}
+
+.star-rating input {
+
+    display: none;
+
+}
+
+.star-rating label {
+
+    font-size: 30px;
+
+    color: #d5d5d5;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    margin: 0;
+
+}
+
+.star-rating label:hover,
+
+.star-rating label:hover ~ label,
+
+.star-rating input:checked ~ label {
+
+    color: #ffc107;
+
+}
+
+.feedback-submit {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 11px;
+
+    background: #034570;
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+}
+
+.feedback-submit:hover {
+
+    background: #6db1ff;
+
+}

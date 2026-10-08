@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile - TripMate</title>
+
+    <!-- Same font as TripMate website -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Same icons as TripMate website -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+
+        /* =======================================
+           SAME NAVBAR AS OTHER TRIPMATE PAGES
+        ======================================= */
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 8%;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: #0284c7;
+            font-size: 30px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .nav-links a {
+            color: #475569;
+            font-size: 18px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #0284c7;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        
+        .login-btn,
+        .logout-btn {
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .profile-btn{
+             color: #4a78a3;
+              font-size: 18px;
+                display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .login-btn,
+        .logout-btn {
+            color: #0284c7;
+        }
+
+        .profile-btn:hover,
+        .login-btn:hover,
+        .logout-btn:hover {
+            color: #0369a1;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #0473aa;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+
+        /* =======================================
+           PROFILE
+           SAME LOOK AS HOME FEATURE CARDS
+        ======================================= */
+
+        .profile-section {
+            padding: 80px 8%;
+            background-color: #ffffff;
+            text-align: center;
+            min-height: 72vh;
+        }
+
+        .profile-heading {
+            margin-bottom: 45px;
+        }
+
+        .profile-heading .subtitle {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0284c7;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .profile-heading h1 {
+            font-size: 32px;
+            color: #0f172a;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .profile-card {
+            background:ivory;
+            padding: 40px 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e7e9;
+            max-width: 500px;
+            margin: 0 auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px black;
+        }
+
+        .profile-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgb(222, 222, 226);
+            color: #0284c7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 25px auto;
+        }
+
+        .profile-card h2 {
+            font-size: 20px;
+            color: #0f172a;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .profile-info {
+            text-align: left;
+            border-top: 1px solid #e5e7e9;
+            padding-top: 20px;
+        }
+
+        .profile-info p {
+            display: flex;
+            align-items: flex-start;
+            margin: 16px 0;
+            color: #617286;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .profile-info strong {
+            width: 90px;
+            flex-shrink: 0;
+            color: #172b4d;
+            font-weight: 600;
+        }
+
+
+        /* =======================================
+           SAME SIMPLE FOOTER
+        ======================================= */
+
+        .simple-footer {
+            text-align: center;
+            padding: 25px;
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+
+        /* =======================================
+           MOBILE
+        ======================================= */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                padding: 15px 5%;
+                position: sticky;
+                top: 0;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .nav-links,
+            .nav-buttons {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                flex-direction: column;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+                border-radius: 0 0 12px 12px;
+                overflow: hidden;
+                z-index: 1000;
+            }
+
+            .mobile-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu a {
+                color: #334155;
+                font-size: 15px;
+                font-weight: 500;
+                padding: 14px 22px;
+                border-bottom: 1px solid #f1f5f9;
+            }
+
+            .mobile-menu a:hover {
+                background: #f0f9ff;
+                color: #0284c7;
+            }
+
+            .mobile-menu a:last-child {
+                border-bottom: none;
+                color: #0284c7;
+            }
+
+            .profile-section {
+                padding: 60px 5%;
+            }
+
+            .profile-heading h1 {
+                font-size: 27px;
+            }
+
+            .profile-card {
+                width: 100%;
+                padding: 35px 22px;
+            }
+        }
+
+
+        /* =======================================
+           SMALL MOBILE
+        ======================================= */
+
+        @media (max-width: 480px) {
+
+            .navbar {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .profile-section {
+                padding: 50px 5%;
+            }
+
+            .profile-heading h1 {
+                font-size: 24px;
+            }
+
+            .profile-heading .subtitle {
+                font-size: 12px;
+            }
+
+            .profile-card {
+                padding: 30px 18px;
+            }
+
+            .profile-info p {
+                font-size: 13px;
+            }
+
+            .profile-info strong {
+                width: 78px;
+            }
+
+            .simple-footer {
+                font-size: 13px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- SAME SHARED NAVBAR -->
+    {% include 'navbar.html' %}
+
+
+    <!-- =======================================
+         PROFILE SECTION
+    ======================================= -->
+
+    <section class="profile-section">
+
+        <div class="profile-heading">
+
+            <span class="subtitle">
+                MY PROFILE
+            </span>
+
+            <h1>
+                Profile Information
+            </h1>
+
+        </div>
+
+
+        <!-- FEATURE-CARD STYLE PROFILE CARD -->
+
+        <div class="profile-card">
+
+            <div class="profile-icon">
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
+
+            <h2>
+                {{ user.name }}
+            </h2>
+
+
+            <div class="profile-info">
+
+                <p>
+                    <strong>Email:</strong>
+                    <span>{{ user.email }}</span>
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    <span>{{ user.phone }}</span>
+                </p>
+
+                <p>
+                    <strong>Gender:</strong>
+                    <span>{{ user.gender }}</span>
+                </p>
+
+                <p>
+                    <strong>City:</strong>
+                    <span>{{ user.city }}</span>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SAME FOOTER STYLE -->
+
+    <footer class="simple-footer">
+
+        <p>
+            &copy; 2026 TripMate. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- MOBILE MENU -->
+
+    <script>
+
+        function toggleMenu() {
+
+            const menu =
+                document.getElementById("mobileMenu");
+
+            if (menu) {
+                menu.classList.toggle("active");
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
